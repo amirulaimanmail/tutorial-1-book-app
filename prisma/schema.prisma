@@ -13,6 +13,7 @@ model Book {
   name        String
   description String
   url         String   @default("")
+  isRead      Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
