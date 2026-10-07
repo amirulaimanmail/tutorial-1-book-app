@@ -75,6 +75,8 @@ export default function LoginForm({ redirectTo }) {
             {submitting ? "Logging in..." : "Log in"}
             {!submitting && <span aria-hidden="true">→</span>}
           </button>
+          <p>username: test</p>
+          <p>password: 123</p>
         </form>
       </section>
     </main>
