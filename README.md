@@ -21,9 +21,11 @@ This fixed-account setup is for local development and demos, not public
 production deployments. Use a proper user store and password hashing before
 exposing the app to the internet.
 
-Reading titles, descriptions, and HTTP(S) links are stored in the local
-`dev.db` SQLite database. Links are validated before saving and open in a new
-browser tab.
+Reading titles, descriptions, read status, and HTTP(S) links are stored in the
+TiDB MySQL database configured by `DATABASE_URL` (using passwordless access).
+Links are validated before
+saving and open in a new browser tab. Existing data in `dev.db` is not
+automatically migrated to TiDB.
 
 The Prisma model and asynchronous CRUD API are in `prisma/schema.prisma` and
-`app/api/books`.
+`app/api/books`. Keep `.env` private and do not commit the TiDB password.

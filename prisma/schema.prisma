@@ -4,15 +4,15 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Book {
-  id          String   @id @default(cuid())
-  name        String
-  description String
-  url         String   @default("")
+  id          String   @id @default(cuid()) @db.VarChar(30)
+  name        String   @db.VarChar(150)
+  description String   @db.Text
+  url         String   @default("") @db.VarChar(2048)
   isRead      Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
