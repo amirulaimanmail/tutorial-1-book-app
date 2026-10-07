@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reading List
 
-## Getting Started
+## Run locally
 
-First, run the development server:
+1. Install dependencies with `npm install`.
+2. Copy `.env.example` to `.env` if `.env` does not already exist.
+3. Create or update the local SQLite database with `npm run db:push`.
+4. Set `AUTH_SESSION_SECRET` in `.env` to a random secret of at least 32
+   characters.
+5. Start the app with `npm run dev`.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Login
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The demo account is `reader` with password `readwithme`. Update the `ACCOUNTS`
+map in `lib/auth.js` to add or change local accounts. Sessions use signed,
+HTTP-only cookies and expire after seven days. All book APIs and detail pages
+require a valid login.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This fixed-account setup is for local development and demos, not public
+production deployments. Use a proper user store and password hashing before
+exposing the app to the internet.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Reading titles, notes, and HTTP(S) links are stored in `dev.db`. Links are
+validated before saving and open in a new browser tab.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The Prisma model and asynchronous CRUD API are in `prisma/schema.prisma` and
+`app/api/books`. The schema now stores a URL instead of cover-image bytes; apply
+the update with `npm run db:push`. Existing titles and descriptions are kept,
+but the old image data is removed. To move to MySQL later, change the Prisma datasource provider
+to `mysql`, update `DATABASE_URL`, then apply the schema with Prisma's migration
+tools. The CRUD code uses Prisma and does not depend on SQLite-specific
+queries.

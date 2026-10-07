@@ -1,0 +1,229 @@
+.page {
+  min-height: 100vh;
+  padding: 0 28px 40px;
+  color: #25352c;
+  background:
+    radial-gradient(ellipse at 85% 4%, rgba(237, 225, 190, 0.35), transparent 28%),
+    #f8f6ef;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+.shell {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.header {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(53, 92, 69, 0.12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #25352c;
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 8px;
+  background: #e7ebdf;
+}
+
+.brandMark span {
+  width: 6px;
+  height: 13px;
+  border: 1px solid #355c45;
+  border-radius: 2px 2px 3px 3px;
+  background: #fffefa;
+}
+
+.brandMark span:first-child {
+  transform: rotate(-8deg);
+}
+
+.brandMark span:last-child {
+  height: 15px;
+  transform: rotate(7deg);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #637467;
+  font-size: 12px;
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.backLink:hover,
+.brand:hover {
+  color: #284936;
+}
+
+.detailCard {
+  display: flex;
+  justify-content: center;
+  margin-top: 58px;
+  padding: clamp(28px, 6vw, 64px);
+  border: 1px solid #e8e5d9;
+  border-radius: 17px;
+  background: #fffefa;
+  box-shadow: 0 12px 38px rgba(44, 57, 44, 0.055);
+}
+
+.details {
+  min-width: 0;
+  width: min(600px, 100%);
+}
+
+.eyebrow {
+  margin: 0 0 13px;
+  color: #78866f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.details h1 {
+  margin: 0;
+  color: #25352c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 500;
+  letter-spacing: -1.7px;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 24px 0;
+}
+
+.divider span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #9cae8d;
+}
+
+.divider span:nth-child(2) {
+  width: 34px;
+  height: 1px;
+  border-radius: 0;
+}
+
+.details h2 {
+  margin: 0 0 10px;
+  color: #415247;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.description {
+  margin: 0;
+  color: #737d74;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.shelfButton {
+  min-height: 41px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 29px;
+  padding: 0 15px;
+  border-radius: 7px;
+  color: white;
+  background: #355c45;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.shelfButton:hover {
+  background: #284936;
+  transform: translateY(-1px);
+}
+
+.missingLink {
+  margin: 24px 0 0;
+  color: #9a766b;
+  font-size: 12px;
+}
+
+.returnLink {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin-top: 20px;
+  color: #637467;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.returnLink:hover {
+  color: #284936;
+  text-decoration: underline;
+}
+
+.footer {
+  padding-top: 25px;
+  color: #91968b;
+  font-size: 10px;
+  text-align: center;
+}
+
+.footer span {
+  padding-left: 3px;
+  color: #9cae8d;
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding: 0 16px 28px;
+  }
+
+  .header {
+    height: 65px;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .backLink {
+    font-size: 10px;
+  }
+
+  .detailCard {
+    margin-top: 28px;
+    padding: 25px;
+  }
+}
